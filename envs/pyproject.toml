@@ -1,9 +1,12 @@
 [project]
-name = "<cache-name>"
+name = "valid-nwb-file-to-number-of-groups"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
     "datalad",
     "datalad-container",
-    # TODO: add this cache's processing dependencies used by code/update.py.
+    "h5py",
+    "remfile",
+    "s3fs",
+    "zarr<3",
 ]
