@@ -127,7 +127,20 @@ fi
 
 # Pin the published image digest and register it as a container. Only the digest is stored
 # (a small text file), so the dataset stays annex-free; ghcr holds the image bytes.
-docker pull "${IMAGE}"
+#
+# Retry a few times: ghcr.io occasionally answers a manifest HEAD with a transient
+# "denied: denied" right after a successful login, unrelated to actual auth/permissions.
+for attempt in 1 2 3; do
+  if docker pull "${IMAGE}"; then
+    break
+  elif [ "${attempt}" = 3 ]; then
+    echo "ERROR: docker pull ${IMAGE} failed after ${attempt} attempts." >&2
+    exit 1
+  else
+    echo "docker pull ${IMAGE} failed (attempt ${attempt}/3); retrying in $((attempt * 5))s..." >&2
+    sleep "$((attempt * 5))"
+  fi
+done
 DIGEST=$(docker inspect --format '{{index .RepoDigests 0}}' "${IMAGE}")
 mkdir -p .datalad/environments/pipeline
 printf '%s\n' "${DIGEST}" > .datalad/environments/pipeline/image
