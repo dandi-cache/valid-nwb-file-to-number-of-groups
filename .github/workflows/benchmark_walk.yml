@@ -1,13 +1,17 @@
 name: Benchmark group walk (temporary)
 
-# Temporary, dispatch-only: time the old `visititems` walk against the hard-link walk on the
-# two largest assets of the batch that run #393 was processing, on a hosted runner, and print
-# each byte-range request so the access pattern is visible in the job log. Touches no dataset
-# branch. To be removed once the numbers are recorded on PR #4.
+# Temporary: time the old `visititems` walk against the hard-link walk on the two largest
+# assets of the batch that run #393 was processing, on a hosted runner, and print each
+# byte-range request so the access pattern is visible in the job log. Touches no dataset
+# branch. Runs on push to the PR branch only (a workflow that is not on the default branch
+# cannot be dispatched). To be removed once the numbers are recorded on PR #4.
 
 permissions: {}
 
 on:
+  push:
+    branches: [ claude/happy-darwin-jr6rvp ]
+    paths: [ .github/workflows/benchmark_walk.yml ]
   workflow_dispatch:
     inputs:
       old_walk_cap_minutes:
@@ -28,7 +32,7 @@ jobs:
           nproc; free -h; df -h /
       - name: Compare walks
         env:
-          OLD_WALK_CAP_MINUTES: ${{ inputs.old_walk_cap_minutes }}
+          OLD_WALK_CAP_MINUTES: ${{ inputs.old_walk_cap_minutes || 25 }}
         run: |
           cat > /tmp/bench.py <<'EOF'
           import resource
