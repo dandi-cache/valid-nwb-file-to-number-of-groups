@@ -7,8 +7,8 @@
 #   - `derivatives` is a persistent DataLad dataset on its own branch, cloned standalone
 #                   into scratch. The processing is recorded there with
 #                   `datalad containers-run`, so every update carries full provenance (the
-#                   command, the input subdataset commit, the output diff, and the container
-#                   image digest) and history is retained.
+#                   command, the input subdataset commit, the output diff, the container
+#                   image digest, and the run's log under `logs/`) and history is retained.
 #   - `dist`        is the lightweight, force-recreated publication artifact consumed by
 #                   downstream users (see README.md).
 #
@@ -179,9 +179,14 @@ RUN_INPUT_ARGS=()
 if [ -n "${INPUT_SUBDATASET_URL}" ]; then
   RUN_INPUT_ARGS=(--input "${INPUT_SUBDATASET_PATH}")
 fi
+#
+# `logs` is declared as a second output: update.py writes a timestamped log of each run there,
+# so the log of every completed update is committed to the `derivatives` branch with the
+# results it produced (only `derivatives` is published to `dist`).
 datalad containers-run -n pipeline --explicit \
   "${RUN_INPUT_ARGS[@]}" \
   --output derivatives \
+  --output logs \
   -m "Update valid-nwb-file-to-number-of-groups (code @ ${GITHUB_SHA}; image ${DIGEST})" \
   "python /code/update.py --base-directory /tmp ${RUN_ARG}"
 
