@@ -66,6 +66,37 @@ def _peak_memory_mib() -> float:
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
 
 
+def _count_hdf5_subgroups(group: h5py.Group, visited_addresses: set[int]) -> int:
+    """Count the groups reachable from `group` through hard links, `group` itself excluded.
+
+    This counts exactly what `h5py.Group.visititems` would (hard links only, and an object
+    that is hard-linked from more than one place counts once) without its cost: `visititems`
+    runs `H5Ovisit`, which retrieves the full object info of every object it passes, and for a
+    chunked dataset that info includes the on-disk size of its chunk index, so HDF5 walks the
+    dataset's entire chunk B-tree. Streamed over HTTP that is one round trip per B-tree node,
+    and a single dataset with a few hundred thousand chunks in a multi-GB file took over an
+    hour. Here only groups are opened and descended into; a dataset costs one object-header
+    read to learn that it is not a group.
+    """
+    number_of_groups = 0
+    for name in group:
+        # `visititems` follows hard links only; soft and external links are skipped.
+        if not isinstance(group.get(name, getlink=True), h5py.HardLink):
+            continue
+        child = group[name]
+        if not isinstance(child, h5py.Group):
+            continue
+        child_info = h5py.h5o.get_info(child.id)
+        # An object hard-linked from more than one place (`rc` is its hard-link count) is
+        # counted once, as `H5Ovisit` does; this also terminates hard-link cycles.
+        if child_info.rc > 1:
+            if child_info.addr in visited_addresses:
+                continue
+            visited_addresses.add(child_info.addr)
+        number_of_groups += 1 + _count_hdf5_subgroups(group=child, visited_addresses=visited_addresses)
+    return number_of_groups
+
+
 def _count_hdf5_groups(content_id: str) -> tuple[int, str]:
     """Stream an HDF5 asset and count its groups, the root group included.
 
@@ -74,14 +105,10 @@ def _count_hdf5_groups(content_id: str) -> tuple[int, str]:
     blob_url = _BLOB_URL_TEMPLATE.format(prefix=content_id[:3], infix=content_id[3:6], content_id=content_id)
     rem_file = remfile.File(url=blob_url)
     with h5py.File(name=rem_file, mode="r") as h5py_file:
-        number_of_groups = 1  # The root `/` is itself a group; `visititems` does not visit it.
-
-        def _visit(_name: str, obj: object) -> None:
-            nonlocal number_of_groups
-            if isinstance(obj, h5py.Group):
-                number_of_groups += 1
-
-        h5py_file.visititems(_visit)
+        # The root `/` is itself a group. Seed the visited set with it so that a hard link
+        # back to the root from below is not counted again.
+        visited_addresses = {h5py.h5o.get_info(h5py_file.id).addr}
+        number_of_groups = 1 + _count_hdf5_subgroups(group=h5py_file, visited_addresses=visited_addresses)
     return number_of_groups, f"HDF5, {rem_file.length / 1e6:.1f} MB"
 
 
