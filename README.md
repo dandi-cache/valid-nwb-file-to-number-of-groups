@@ -56,6 +56,8 @@ Or, if you prefer [DataLad](https://www.datalad.org/):
 datalad clone https://github.com/dandi-cache/valid-nwb-file-to-number-of-groups.git --branch derivatives
 ```
 
+The `derivatives` branch also keeps the log of every update under `logs/`, next to the results it produced.
+
 Then set up a CRON on your system to pull the latest version of the cache at your desired frequency.
 
 For example, through `crontab -e`, add:
