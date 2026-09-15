@@ -2,7 +2,9 @@
 
 A mapping from the content ID of every valid NWB file on the DANDI archive to the total number of groups inside that file.
 
-The set of valid NWB files is taken from the [`content-id-to-valid-nwb-file`](https://github.com/dandi-cache/content-id-to-valid-nwb-file) cache, restricted to the entries it marked `true`. Each such file is streamed directly from the public DANDI S3 bucket and read with [h5py](https://www.h5py.org/) (HDF5 assets) or [zarr](https://zarr.readthedocs.io/) (Zarr assets), and its groups are counted. The count includes the root group, so it is the total number of groups in the file's hierarchy.
+The set of valid NWB files is taken from the [`content-id-to-valid-nwb-file`](https://github.com/dandi-cache/content-id-to-valid-nwb-file) cache, restricted to the entries it marked `true`.
+Each such file is streamed directly from the public DANDI S3 bucket and read with [h5py](https://www.h5py.org/) (HDF5 assets) or [zarr](https://zarr.readthedocs.io/) (Zarr assets), and its groups are counted.
+The count includes the root group, so it is the total number of groups in the file's hierarchy.
 
 Each line of the derivatives is a JSON object of the form:
 
