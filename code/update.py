@@ -29,7 +29,7 @@ def main() -> None:
         dataset,
         candidates=valid_content_ids,
         process=count_groups,
-        limit=dandi_cache.effective_limit(testing=dataset.testing, limit=arguments.limit),
+        limit=dataset.limit(arguments.limit),
         # These files were already opened successfully upstream, so a failure here is almost always
         # transient. Leave the item for a later run rather than recording a wrong count.
         on_failure=dandi_cache.SKIP,
