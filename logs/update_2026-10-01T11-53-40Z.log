@@ -1,0 +1,4 @@
+2026-10-01T11:53:40Z INFO Logging to /tmp/logs/update_2026-10-01T11-53-40Z.log.
+2026-10-01T11:53:40Z INFO Update valid-nwb-file-to-number-of-groups (base directory /tmp).
+2026-10-01T11:53:40Z INFO Processing 0 items (63215 already recorded).
+2026-10-01T11:53:40Z INFO Wrote 63215 records to /tmp/derivatives/valid_nwb_file_to_number_of_groups.jsonl (0 new, 0 failed) in 0.0 min (peak memory 38 MiB).
