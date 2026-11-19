@@ -1,0 +1,7 @@
+2026-11-19T03:41:03Z INFO Logging to /tmp/logs/update_2026-11-19T03-41-03Z.log.
+2026-11-19T03:41:03Z INFO Update valid-nwb-file-to-number-of-groups (base directory /tmp).
+2026-11-19T03:41:05Z INFO Processing 2 items (199721 already recorded).
+2026-11-19T03:42:27Z INFO [1/2] c18f0cd3-48ea-4ae3-8314-6dab5026a6a4: 38 groups; 82.5 s; peak memory 284 MiB.
+2026-11-19T03:45:40Z INFO [2/2] e9289701-ba2e-4d00-81d3-6772b42e7d40: 44 groups; 192.6 s; peak memory 430 MiB.
+2026-11-19T03:45:40Z INFO Wrote 199723 records to /tmp/derivatives/valid_nwb_file_to_number_of_groups.zarr (2 new, 0 failed) in 4.6 min (peak memory 522 MiB).
+2026-11-19T03:45:40Z INFO Progress: 199,665 of 199,665 candidates recorded (100.0%).
