@@ -1,0 +1,21 @@
+2026-11-22T22:33:33Z INFO Logging to /tmp/logs/update_2026-11-22T22-33-33Z.log.
+2026-11-22T22:33:33Z INFO Update valid-nwb-file-to-number-of-groups (base directory /tmp).
+2026-11-22T22:33:36Z INFO Processing 15 items (221093 already recorded).
+2026-11-22T22:33:37Z INFO [1/15] 1ec7e3cf-3f45-4ca5-a65b-b9c086ba9a5c: 32 groups; 1.1 s; peak memory 207 MiB.
+2026-11-22T22:39:50Z INFO [2/15] 1edca36d-e894-4d33-8ff1-ba4d6c338311: 47 groups; 373.3 s; peak memory 1065 MiB.
+2026-11-22T22:39:51Z INFO [3/15] 1f424788-4970-42af-8dde-aca5968b1869: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:52Z INFO [4/15] 1f457545-468f-4b5b-8ce7-d54c30198d83: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:52Z INFO [5/15] 1f557b98-2a49-47c5-980c-63180a4c7284: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:53Z INFO [6/15] 1f619497-eb84-496d-a7f0-a5cb4a1904cb: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:54Z INFO [7/15] 1f73505b-9f34-41a7-bfa2-25e39e02201b: 32 groups; 0.9 s; peak memory 1065 MiB.
+2026-11-22T22:39:55Z INFO [8/15] 1f75306e-87b4-4cad-a4ef-c1aa2ecfa81c: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:56Z INFO [9/15] 23c96442-74cd-4d7d-979a-5395ab414561: 32 groups; 0.7 s; peak memory 1065 MiB.
+2026-11-22T22:39:57Z INFO [10/15] 3b8ecb6a-d29f-4a4d-a968-b81ba9d2e6e4: 32 groups; 0.9 s; peak memory 1065 MiB.
+2026-11-22T22:39:57Z INFO [11/15] 3d809077-555e-424b-b6a6-9ff59186dc8f: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:58Z INFO [12/15] 47097122-89f3-49d8-b022-9f04ab7034fd: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:39:59Z INFO [13/15] 4f6096a6-2787-4741-ab4b-cd310efc3d48: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:40:00Z INFO [14/15] 5557a397-2095-44b5-b30d-06402415e667: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:40:01Z INFO [15/15] 596c2743-28f7-4274-a036-cb6a1693e7fd: 32 groups; 0.8 s; peak memory 1065 MiB.
+2026-11-22T22:40:01Z INFO Wrote 221108 records to /tmp/derivatives/valid_nwb_file_to_number_of_groups.zarr (15 new, 0 failed) in 6.4 min (peak memory 1065 MiB).
+2026-11-22T22:40:01Z INFO Batch summary: considered=15 new=15 failed=0 left=0 stopped=none
+2026-11-22T22:40:01Z INFO Progress: 221,050 of 221,050 candidates recorded (100.0%).
