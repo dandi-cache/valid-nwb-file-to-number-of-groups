@@ -1,0 +1,27 @@
+2026-11-28T04:01:21Z INFO Logging to /tmp/logs/update_2026-11-28T04-01-21Z.log.
+2026-11-28T04:01:21Z INFO Update valid-nwb-file-to-number-of-groups (base directory /tmp).
+2026-11-28T04:01:24Z INFO Processing 21 items (222741 already recorded).
+2026-11-28T04:01:25Z INFO [1/21] 06671af4-a1b9-4ba7-a154-7a2483f3ef8e: 32 groups; 1.1 s; peak memory 208 MiB.
+2026-11-28T04:01:26Z INFO [2/21] 0760a455-21c5-4463-bb86-6c174e284f79: 32 groups; 0.8 s; peak memory 208 MiB.
+2026-11-28T04:01:27Z INFO [3/21] 08263532-e2de-4646-8b3f-b3c7536e9b8d: 32 groups; 0.9 s; peak memory 208 MiB.
+2026-11-28T04:01:28Z INFO [4/21] 0cf4969b-4f42-4326-87b5-0429049f7e8c: 32 groups; 0.8 s; peak memory 208 MiB.
+2026-11-28T04:01:29Z INFO [5/21] 0e5dafc9-376f-4109-9de3-efbfb95f60c0: 32 groups; 0.9 s; peak memory 208 MiB.
+2026-11-28T04:01:30Z INFO [6/21] 21e2ce65-409a-4385-97d7-222d6da426e1: 32 groups; 0.9 s; peak memory 208 MiB.
+2026-11-28T04:01:30Z INFO [7/21] 21ee5d73-688b-4bcc-9d21-55262e7ba61b: 32 groups; 0.9 s; peak memory 208 MiB.
+2026-11-28T04:01:31Z INFO [8/21] 21f55db5-e25a-4e62-ba0b-40a7ea132ba3: 32 groups; 0.9 s; peak memory 208 MiB.
+2026-11-28T04:02:29Z INFO [9/21] 222b44ae-1b86-4b06-8f69-8042fcdcc8da: 44 groups; 57.4 s; peak memory 283 MiB.
+2026-11-28T04:02:30Z INFO [10/21] 2250ab3e-6622-435c-b494-1339b3b2a371: 32 groups; 1.0 s; peak memory 283 MiB.
+2026-11-28T04:02:31Z INFO [11/21] 2272e070-10d4-4e1d-b79d-912fca914828: 32 groups; 0.9 s; peak memory 283 MiB.
+2026-11-28T04:02:32Z INFO [12/21] 2280383f-e527-4963-8836-4adb65e24310: 32 groups; 1.1 s; peak memory 283 MiB.
+2026-11-28T04:02:33Z INFO [13/21] 2292f3aa-e7f8-40f9-95bf-35f66f557cd7: 32 groups; 1.1 s; peak memory 283 MiB.
+2026-11-28T04:02:34Z INFO [14/21] 22dfc258-b807-435d-9f4d-04ca777514cf: 32 groups; 1.0 s; peak memory 283 MiB.
+2026-11-28T04:02:34Z INFO [15/21] 22eff31b-8f85-4c96-bf8f-8050fcef1e66: 32 groups; 0.7 s; peak memory 283 MiB.
+2026-11-28T04:02:35Z INFO [16/21] 230fabbf-a232-4d79-aee4-2b93171c2f03: 32 groups; 0.9 s; peak memory 283 MiB.
+2026-11-28T04:02:36Z INFO [17/21] 2316e3ee-d1d4-466d-9fb9-993f134d658b: 32 groups; 0.9 s; peak memory 283 MiB.
+2026-11-28T04:03:32Z INFO [18/21] 231fd060-f63d-449e-9088-7cb7d7f329bd: 57 groups; 56.0 s; peak memory 295 MiB.
+2026-11-28T04:03:33Z INFO [19/21] 23292a06-9a22-468c-aef2-d1188cf90ee3: 32 groups; 0.9 s; peak memory 295 MiB.
+2026-11-28T04:03:34Z INFO [20/21] 233c6199-5440-44be-9727-1ed09fcd6085: 32 groups; 0.8 s; peak memory 295 MiB.
+2026-11-28T04:03:35Z INFO [21/21] fba22cde-9e3a-42f1-92eb-2a6aca233f2a: 32 groups; 0.8 s; peak memory 295 MiB.
+2026-11-28T04:03:35Z INFO Wrote 222762 records to /tmp/derivatives/valid_nwb_file_to_number_of_groups.zarr (21 new, 0 failed) in 2.2 min (peak memory 388 MiB).
+2026-11-28T04:03:35Z INFO Batch summary: considered=21 new=21 failed=0 left=0 stopped=none
+2026-11-28T04:03:35Z INFO Progress: 222,698 of 222,698 candidates recorded (100.0%).
